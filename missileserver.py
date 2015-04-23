@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
 """
 USB Missile Command Center
 written by Chris Evans <cevans@delta-risk.net>
@@ -27,6 +29,8 @@ import ctypes
 import struct
 import time
 from armageddon import Armageddon
+
+PASS = "2492"
 
 ########################################################################################################################
 if __name__ == "__main__":
@@ -96,6 +100,9 @@ if __name__ == "__main__":
                 self.do_everything()
 
             def do_everything (self):
+		if not self.path.endswith("pass="+PASS):
+			self.send_error(401, "Incorrect 'pass' paramter")
+			return
                 if "up" in self.path:
                      #m.send_cmd(self, m.UP, 100)
              	     #m.send_cmd(m.STOP)
@@ -122,11 +129,11 @@ if __name__ == "__main__":
                 response = """
                 <title>Missile Command Center</title>
                 <table border=0 cellpadding=20 cellspacing=0 style="font-size: 10em;">
-                    <tr><td></td><td><a href="/up">U</a></td><td></td></tr>
-                    <tr><td><a href="/left">L</a></td><td><a href="/fire">F</a></td><td><a href="/right">R</a></td></tr>
-                    <tr><td></td><td><a href="/down">D</a></td><td></td></tr>
+                    <tr><td></td><td><a href="/up{0}">U</a></td><td></td></tr>
+                    <tr><td><a href="/left{0}">L</a></td><td><a href="/fire{0}">F</a></td><td><a href="/right{0}">R</a></td></tr>
+                    <tr><td></td><td><a href="/down{0}">D</a></td><td></td></tr>
                 </table>
-                """
+                """.format("&pass="+PASS)
 
                 self.wfile.write(response)
 
