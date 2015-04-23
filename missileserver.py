@@ -20,8 +20,8 @@ Installation Instructions:
   Run:
     python ./missileserver.py
       press 'w' when prompted to start webserver
-      browse to http://IP:12345 to access the command center web page
-
+      browse to http://IP:12345 to attempt to access the command center web page
+      browse to http://IP:12345/pass=2492 to access the command center web page
   Only tested with the Dream Cheeky 908 Thunder Missile Launcher and Ubuntu 14.04.2 LTS Desktop 64bit
 """
 
