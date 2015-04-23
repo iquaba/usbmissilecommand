@@ -1,7 +1,7 @@
 # usbmissilecommand
 USB Missile Command Launcher Python script
 
-Mashed up by Chris Evans <cevans@delta-risk.net>
+Mashed up by Chris Evans (aka cbevans)
 
 Mashed up from USB Missile Launcher Python Interface written by Pedram Amini <pamini@tippingpoint.com>
           and  Armageddon USB Missile Launcher by Piotr Maliński (aka riklaunim), http://www.rk.edu.pl
