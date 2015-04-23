@@ -41,7 +41,7 @@ if __name__ == "__main__":
             break
 
 #    m = missile(debug=False)
-    m = Armageddon(debug=True)
+    m = Armageddon(debug=False)
 
     def command_processor(cmd):
         percent = None
