@@ -18,9 +18,11 @@ class Armageddon(object):
     DEVICE_ORIGINAL = 'Original'
     DEVICE_THUNDER = 'Thunder'
 
-    def __init__(self, debug=True):
+    def __init__(self, debug=False):
+	# Set debug=True to start without the missile launcher
+
 	self.debug = debug
-	if self.debug:
+	if self.debug:  
 		return
         self._get_device()
         self._detach_hid()
