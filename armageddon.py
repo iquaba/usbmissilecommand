@@ -19,18 +19,18 @@ class Armageddon(object):
     DEVICE_THUNDER = 'Thunder'
 
     def __init__(self, debug=False):
-	# Set debug=True to start without the missile launcher
+        # Set debug=True to start without the missile launcher
 
-	self.debug = debug
-	if self.debug:  
-		return
+        self.debug = debug
+        if self.debug:  
+                return
         self._get_device()
         self._detach_hid()
         self.DEVICE.set_configuration()
 
     def _get_device(self):
-	if self.debug:
-		return
+        if self.debug:
+                return
 
         self.DEVICE = usb.core.find(idVendor=0x2123, idProduct=0x1010)
         if self.DEVICE is None:
@@ -43,8 +43,8 @@ class Armageddon(object):
             self.DEVICE_TYPE = self.DEVICE_THUNDER
 
     def _detach_hid(self):
-	if self.debug:
-		return
+        if self.debug:
+                return
 
         if "Linux" == platform.system():
             try:
@@ -53,8 +53,8 @@ class Armageddon(object):
                 pass
 
     def send_cmd(self, cmd):
-	if self.debug:
-		return
+        if self.debug:
+                return
 
         if self.DEVICE_THUNDER == self.DEVICE_TYPE:
             self.DEVICE.ctrl_transfer(0x21, 0x09, 0, 0,
@@ -64,8 +64,8 @@ class Armageddon(object):
                                       [cmd])
 
     def send_move(self, cmd, duration_ms):
-	if self.debug:
-		return
+        if self.debug:
+                return
 
         self.send_cmd(cmd)
         time.sleep(duration_ms / 1000.0)
