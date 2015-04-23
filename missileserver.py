@@ -41,7 +41,7 @@ if __name__ == "__main__":
             break
 	
 #    m = missile(debug=False)
-    m = Armageddon()
+    m = Armageddon(debug=False)
 
     def command_processor(cmd):
         percent = None
@@ -100,7 +100,7 @@ if __name__ == "__main__":
                 self.do_everything()
 
             def do_everything (self):
-		if not self.path.endswith("pass="+PASS):
+		if "pass="+PASS not in self.path:
 			self.send_error(401, "Incorrect 'pass' paramter")
 			return
                 if "up" in self.path:
